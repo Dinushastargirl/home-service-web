@@ -2,24 +2,27 @@ import { motion } from "motion/react";
 
 export default function About() {
   return (
-    <section id="about" className="section-padding bg-secondary/30">
+    <section id="about" className="section-padding bg-foreground text-background">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border-8 border-background/10">
               <img 
-                src="https://picsum.photos/seed/developer/800/800" 
-                alt="Freelance Web Developer" 
-                className="w-full h-full object-cover"
+                src="https://picsum.photos/seed/dinusha/800/1000" 
+                alt="Dinusha Pushparajah" 
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary rounded-2xl -z-10" />
+            {/* Playful element */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary rounded-full flex items-center justify-center rotate-12 shadow-xl">
+              <span className="text-white font-black text-center leading-tight text-sm uppercase tracking-tighter italic">Hello!<br/>I'm Dinusha</span>
+            </div>
           </motion.div>
           
           <motion.div
@@ -27,30 +30,19 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-4">About Me</h2>
-            <h3 className="text-4xl md:text-5xl mb-8">I don't just build websites. I build <span className="text-gradient">growth engines</span>.</h3>
+            <h2 className="text-xs uppercase tracking-[0.4em] text-primary font-black mb-6">The Human Behind The Code</h2>
+            <h3 className="text-5xl md:text-7xl mb-10 leading-[0.95]">I help businesses turn their website into a <span className="text-primary">customer-generating machine.</span></h3>
             
-            <div className="space-y-6 text-lg text-muted-foreground">
+            <div className="space-y-8 text-xl text-background/70 font-medium">
               <p>
-                Hi, I'm a freelance developer dedicated to helping US-based home service businesses dominate their local markets. I've seen too many great plumbers and electricians lose business because of outdated, slow websites that don't work on mobile.
+                I’m Dinusha Pushparajah, and I believe that a website should do more than just look pretty. It should be your hardest-working employee.
               </p>
               <p>
-                My focus is simple: <strong>Conversion</strong>. I combine modern design with psychological triggers that turn casual visitors into high-value leads. Whether you're a one-man show or a growing team, I provide the digital infrastructure you need to scale.
+                I strip away the technical jargon and focus on what actually matters to you: <strong>results</strong>. Whether it's more bookings for your bakery or a smarter system for your service business, I build tools that solve real problems.
               </p>
               <p>
-                I handle the tech, the hosting, and the design, so you can focus on what you do best—serving your customers.
+                My approach is simple: understand your goal, plan the shortest path to get there, and build it with precision. No fluff, just smart systems.
               </p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-8 mt-12">
-              <div>
-                <div className="text-4xl font-bold text-foreground mb-1">5+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider">Years Experience</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-foreground mb-1">50+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider">Projects Delivered</div>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -58,3 +50,4 @@ export default function About() {
     </section>
   );
 }
+

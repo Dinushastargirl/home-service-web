@@ -6,51 +6,60 @@ import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-padding bg-secondary/20">
+    <section id="contact" className="section-padding">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-4">Contact Me</h2>
-            <h3 className="text-4xl md:text-5xl mb-8">Let's talk about <span className="text-gradient">your growth</span></h3>
+            <h2 className="text-xs uppercase tracking-[0.4em] text-primary font-black mb-6">Get In Touch</h2>
+            <h3 className="text-5xl md:text-7xl mb-10 leading-[0.95]">Let’s build something <span className="text-primary">great together.</span></h3>
             
-            <p className="text-lg text-muted-foreground mb-12">
-              Have a question or ready to start? Fill out the form and I'll get back to you within 24 hours.
-            </p>
+            <div className="space-y-10">
+              <a href="tel:0710134406" className="flex items-center gap-6 group">
+                <div className="w-16 h-16 rounded-[1.5rem] bg-foreground text-background flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Phone className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-foreground/40 uppercase tracking-widest font-black mb-1">Call Me</div>
+                  <div className="text-2xl font-black tracking-tighter">0710134406</div>
+                </div>
+              </a>
+              
+              <a href="mailto:dinushapushparajah@gmail.com" className="flex items-center gap-6 group">
+                <div className="w-16 h-16 rounded-[1.5rem] bg-foreground text-background flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Mail className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-foreground/40 uppercase tracking-widest font-black mb-1">Email Me</div>
+                  <div className="text-2xl font-black tracking-tighter">dinushapushparajah@gmail.com</div>
+                </div>
+              </a>
+              
+              <div className="flex items-center gap-6 group">
+                <div className="w-16 h-16 rounded-[1.5rem] bg-foreground text-background flex items-center justify-center">
+                  <MapPin className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-foreground/40 uppercase tracking-widest font-black mb-1">Location</div>
+                  <div className="text-2xl font-black tracking-tighter">Rajagiriya, Sri Lanka</div>
+                </div>
+              </div>
+            </div>
             
-            <div className="space-y-8">
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Call Me</div>
-                  <div className="text-xl font-bold">(555) 123-4567</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Email Me</div>
-                  <div className="text-xl font-bold">hello@homeserviceweb.com</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Location</div>
-                  <div className="text-xl font-bold">Austin, Texas (Serving Nationwide)</div>
-                </div>
-              </div>
+            {/* Embedded Map */}
+            <div className="mt-12 brutal-card rounded-3xl overflow-hidden h-[300px]">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.43572836245!2d79.8893467!3d6.9073281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2599665f8078f%3A0x633887c2b6298642!2sRajagiriya!5e0!3m2!1sen!2slk!4v1712568000000!5m2!1sen!2slk" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </motion.div>
           
@@ -58,33 +67,32 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass p-8 md:p-12 rounded-3xl"
+            className="brutal-card p-10 md:p-16 rounded-[3rem]"
           >
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold uppercase tracking-wider">Full Name</label>
-                  <Input placeholder="John Doe" className="bg-background/50 h-12 rounded-xl" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold uppercase tracking-wider">Email Address</label>
-                  <Input type="email" placeholder="john@example.com" className="bg-background/50 h-12 rounded-xl" />
-                </div>
+            <form className="space-y-8">
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Your Name</label>
+                <Input placeholder="John Doe" className="bg-background border-2 border-foreground/10 h-14 rounded-2xl px-6 font-bold" />
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-wider">Business Type</label>
-                <Input placeholder="e.g. Plumbing, HVAC, Cleaning" className="bg-background/50 h-12 rounded-xl" />
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Email Address</label>
+                <Input type="email" placeholder="john@example.com" className="bg-background border-2 border-foreground/10 h-14 rounded-2xl px-6 font-bold" />
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-wider">Message</label>
-                <Textarea placeholder="Tell me about your project..." className="bg-background/50 min-h-[150px] rounded-xl" />
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Business Type</label>
+                <Input placeholder="e.g. Bakery, Real Estate, Tech" className="bg-background border-2 border-foreground/10 h-14 rounded-2xl px-6 font-bold" />
               </div>
               
-              <Button size="lg" className="w-full h-14 rounded-xl text-lg font-bold group">
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Message</label>
+                <Textarea placeholder="How can I help you grow?" className="bg-background border-2 border-foreground/10 min-h-[150px] rounded-2xl px-6 py-4 font-bold" />
+              </div>
+              
+              <Button size="lg" className="brutal-btn w-full h-16 rounded-2xl text-xl uppercase tracking-widest group">
                 Send Message
-                <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <Send className="ml-3 w-6 h-6 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
               </Button>
             </form>
           </motion.div>
@@ -93,3 +101,4 @@ export default function Contact() {
     </section>
   );
 }
+

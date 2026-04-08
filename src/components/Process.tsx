@@ -2,54 +2,69 @@ import { motion } from "motion/react";
 
 const steps = [
   {
-    number: "01",
-    title: "Understand Your Business",
-    description: "We start with a deep dive into your services, target areas, and business goals to create a tailored strategy."
+    number: "1",
+    title: "Understand",
+    description: "I learn what your business really needs"
   },
   {
-    number: "02",
-    title: "Build Your Website",
-    description: "I design and develop your high-converting site, focusing on speed, mobile experience, and lead generation."
+    number: "2",
+    title: "Plan",
+    description: "I map out a simple way to get you customers"
   },
   {
-    number: "03",
-    title: "Launch & Optimize",
-    description: "We go live! But it doesn't stop there—I monitor performance and make adjustments to ensure you're getting calls."
+    number: "3",
+    title: "Design",
+    description: "I create something people actually trust"
+  },
+  {
+    number: "4",
+    title: "Build",
+    description: "I turn it into a fast, working website"
+  },
+  {
+    number: "5",
+    title: "Launch",
+    description: "We go live and start getting attention"
+  },
+  {
+    number: "6",
+    title: "Grow",
+    description: "We improve and get you more results"
   }
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="section-padding">
+    <section id="process" className="section-padding bg-primary/5">
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-4">The Process</h2>
-          <h3 className="text-4xl md:text-5xl mb-6">How we get you <span className="text-gradient">more customers</span></h3>
-          <p className="text-lg text-muted-foreground">
-            A simple, transparent workflow designed to get your business online and generating leads as fast as possible.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <h2 className="text-xs uppercase tracking-[0.4em] text-primary font-black mb-6">The Journey</h2>
+          <h3 className="text-5xl md:text-7xl mb-8 leading-[0.95]">Simple steps to <span className="text-primary">big results.</span></h3>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-12 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent -z-10" />
-          
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 relative">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="relative bg-background p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-colors"
+              transition={{ delay: index * 0.1 }}
+              className="relative group"
             >
-              <div className="text-6xl font-black text-primary/10 absolute -top-8 left-8 select-none">
+              <div className="w-20 h-20 bg-foreground text-background rounded-[2rem] flex items-center justify-center text-4xl font-black mb-8 group-hover:rotate-12 transition-transform duration-300">
                 {step.number}
               </div>
-              <h4 className="text-2xl font-bold mb-4 pt-4">{step.title}</h4>
-              <p className="text-muted-foreground leading-relaxed">
+              
+              <h4 className="text-3xl font-black mb-4 tracking-tighter">{step.title}</h4>
+              <p className="text-xl text-foreground/60 font-medium leading-tight">
                 {step.description}
               </p>
+              
+              {/* Connector line for desktop */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-10 left-24 w-full h-px border-t-2 border-dashed border-foreground/10 -z-10" />
+              )}
             </motion.div>
           ))}
         </div>
@@ -57,3 +72,4 @@ export default function Process() {
     </section>
   );
 }
+
