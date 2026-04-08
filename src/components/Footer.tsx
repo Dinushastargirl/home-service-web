@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -7,18 +7,16 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-16 mb-20">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-foreground rounded-xl flex items-center justify-center text-background font-black text-2xl">D</div>
-              <span className="font-display font-black text-2xl tracking-tighter uppercase">Dinusha<span className="text-primary">.</span></span>
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-background font-black text-2xl">d</div>
+              <span className="font-display font-black text-2xl tracking-tighter uppercase">dinusha<span className="text-primary">.</span></span>
             </div>
             <p className="text-xl font-medium text-foreground/60 max-w-sm mb-10 leading-tight">
               I build smart digital systems that turn visitors into loyal customers.
             </p>
             <div className="flex gap-4">
-              {[Twitter, Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 rounded-2xl bg-foreground text-background flex items-center justify-center hover:bg-primary transition-colors">
-                  <Icon className="w-6 h-6" />
-                </a>
-              ))}
+              <a href="https://www.linkedin.com/in/dinusha-pushparajah-747a44215/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-foreground text-background flex items-center justify-center hover:bg-primary transition-colors">
+                <Linkedin className="w-6 h-6" />
+              </a>
             </div>
           </div>
           
@@ -50,4 +48,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 
