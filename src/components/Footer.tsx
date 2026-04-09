@@ -1,52 +1,80 @@
-import { Linkedin } from "lucide-react";
+import React from "react";
+import { Zap, Mail, Phone, MapPin, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="py-20 px-6 md:px-12 lg:px-24 bg-background border-t border-foreground/5">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-4 gap-16 mb-20">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-background font-black text-2xl">d</div>
-              <span className="font-display font-black text-2xl tracking-tighter uppercase">dinusha<span className="text-primary">.</span></span>
-            </div>
-            <p className="text-xl font-medium text-foreground/60 max-w-sm mb-10 leading-tight">
-              I build smart digital systems that turn visitors into loyal customers.
+    <footer className="bg-[#050505] pt-24 pb-12 border-t border-white/5">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-12 gap-12 mb-20">
+          <div className="md:col-span-5">
+            <a href="/" className="flex items-center gap-2 mb-8 group">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                <Zap className="text-background w-6 h-6 fill-current" />
+              </div>
+              <span className="text-2xl font-display font-black tracking-tighter uppercase italic">
+                Lume<span className="text-primary">Agency</span>
+              </span>
+            </a>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-sm mb-8">
+              We engineer high-performance digital experiences for small business owners across the United States.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.linkedin.com/in/dinusha-pushparajah-747a44215/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-foreground text-background flex items-center justify-center hover:bg-primary transition-colors">
-                <Linkedin className="w-6 h-6" />
+              {[Instagram, Twitter, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-background transition-all duration-300">
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-primary mb-8">Navigation</h4>
+            <ul className="space-y-4">
+              {["Services", "Process", "Work", "About"].map((item) => (
+                <li key={item}>
+                  <a href={`#${item.toLowerCase()}`} className="text-muted-foreground hover:text-white transition-colors font-bold uppercase tracking-widest text-xs">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-5">
+            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-primary mb-8">Contact Us</h4>
+            <div className="space-y-6">
+              <a href="mailto:hello@lumeagency.com" className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                  <Mail className="text-primary w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-1">Email</div>
+                  <div className="text-lg font-bold">hello@lumeagency.com</div>
+                </div>
+              </a>
+              <a href="tel:+15550000000" className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary transition-colors">
+                  <Phone className="text-primary w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-1">Phone</div>
+                  <div className="text-lg font-bold">+1 (555) 000-0000</div>
+                </div>
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-black mb-8 uppercase tracking-[0.3em] text-[10px] opacity-40">Navigation</h4>
-            <ul className="space-y-4 text-lg font-bold">
-              <li><a href="#" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#projects" className="hover:text-primary transition-colors">Projects</a></li>
-              <li><a href="#process" className="hover:text-primary transition-colors">Process</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-black mb-8 uppercase tracking-[0.3em] text-[10px] opacity-40">Contact</h4>
-            <ul className="space-y-4 text-lg font-bold">
-              <li>Rajagiriya, Sri Lanka</li>
-              <li>dinushapushparajah@gmail.com</li>
-              <li>0710134406</li>
-            </ul>
-          </div>
         </div>
-        
-        <div className="pt-10 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] opacity-40">
-          <p>© 2026 Dinusha Pushparajah. All rights reserved.</p>
-          <p>Built with smart thinking & simple moves</p>
+
+        <div className="pt-12 border-t border-white/5 flex flex-col md:row justify-between items-center gap-6">
+          <div className="text-muted-foreground text-xs font-bold uppercase tracking-widest">
+            © 2024 Lume Agency LLC. All rights reserved.
+          </div>
+          <div className="flex gap-8">
+            <a href="#" className="text-muted-foreground hover:text-white transition-colors text-[10px] font-black uppercase tracking-widest">Privacy Policy</a>
+            <a href="#" className="text-muted-foreground hover:text-white transition-colors text-[10px] font-black uppercase tracking-widest">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-
-

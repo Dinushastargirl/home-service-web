@@ -6,10 +6,10 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Problem from "@/components/Problem";
 import About from "@/components/About";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
-import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { ModeProvider, useMode } from "@/context/ModeContext";
@@ -66,10 +66,10 @@ function AppContent() {
       <Navbar />
       <main ref={mainRef}>
         <Hero />
+        <Problem />
         <About />
-        <Portfolio />
         <Process />
-        <Contact />
+        <Portfolio />
         <CTA />
       </main>
       <Footer />
