@@ -53,7 +53,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-xl"
           >
-            Lume Agency was founded with one mission: to give small business owners the same digital firepower as Silicon Valley startups. We focus on the metrics that matter—leads, conversions, and ROI.
+            Spark Now was founded with one mission: to give small business owners the same digital firepower as Silicon Valley startups. We focus on the metrics that matter—leads, conversions, and ROI.
           </motion.p>
 
           <div className="grid sm:grid-cols-2 gap-8">

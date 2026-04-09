@@ -8,6 +8,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10 animate-pulse delay-700" />
 
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -41,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.4 }}
             className="mt-24 relative max-w-5xl mx-auto"
           >
-            <div className="relative z-10 rounded-xl overflow-hidden border border-white/[0.05] glass glow-yellow-lg">
+            <div className="relative z-10 rounded-xl overflow-hidden border border-white/[0.05] glass glow-spark-lg">
                <div className="aspect-video bg-neutral-950/50 p-1 flex flex-col justify-center items-center">
                   <img 
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 

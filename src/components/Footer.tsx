@@ -12,7 +12,7 @@ export default function Footer() {
                 <Zap className="text-background w-5 h-5 fill-current" />
               </div>
               <span className="text-xl font-display font-bold tracking-tight uppercase">
-                Lume<span className="text-primary">Agency</span>
+                Spark<span className="text-primary">Now</span>
               </span>
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-10">
@@ -44,7 +44,7 @@ export default function Footer() {
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-8">Contact</h4>
               <div className="space-y-4">
-                <a href="mailto:hello@lumeagency.com" className="block text-sm font-bold hover:text-primary transition-colors">hello@lumeagency.com</a>
+                <a href="mailto:hello@sparknow.com" className="block text-sm font-bold hover:text-primary transition-colors">hello@sparknow.com</a>
                 <a href="tel:+15550000000" className="block text-sm font-bold hover:text-primary transition-colors">+1 (555) 000-0000</a>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="pt-12 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-foreground/20 text-[10px] font-bold uppercase tracking-widest">
-            © 2024 Lume Agency LLC.
+            © 2024 Spark Now LLC.
           </div>
           <div className="flex gap-8">
             <a href="#" className="text-foreground/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">Privacy</a>

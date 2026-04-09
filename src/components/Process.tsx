@@ -68,7 +68,7 @@ export default function Process() {
                 onClick={() => setActiveStep(index)}
                 className={`flex-shrink-0 lg:w-full text-left p-4 lg:p-6 rounded-lg transition-all duration-500 flex items-center gap-4 lg:gap-6 group cursor-pointer ${
                   activeStep === index 
-                    ? "bg-white/[0.03] border border-white/[0.1] glow-yellow" 
+                    ? "bg-white/[0.03] border border-white/[0.1] glow-spark" 
                     : "bg-transparent border border-transparent hover:bg-white/[0.01]"
                 }`}
               >
