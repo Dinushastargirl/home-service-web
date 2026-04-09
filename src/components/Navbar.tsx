@@ -34,7 +34,7 @@ export default function Navbar() {
             <Zap className="text-background w-5 h-5 fill-current" />
           </div>
           <span className="text-xl font-display font-bold tracking-tight uppercase">
-            Spark<span className="text-primary">Now</span>
+            Agent<span className="text-primary">Spark</span>
           </span>
         </a>
 

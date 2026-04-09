@@ -14,7 +14,7 @@
   --color-popover: #0A0A0A;
   --color-popover-foreground: #FFFFFF;
 
-  --color-primary: #D946EF;
+  --color-primary: #FF69B4;
   --color-primary-foreground: #FFFFFF;
 
   --color-secondary: #1A1A1A;
@@ -23,7 +23,7 @@
   --color-muted: #262626;
   --color-muted-foreground: #A3A3A3;
 
-  --color-accent: #3B82F6;
+  --color-accent: #00BFFF;
   --color-accent-foreground: #FFFFFF;
 
   --color-destructive: #EF4444;
@@ -31,7 +31,7 @@
 
   --color-border: #262626;
   --color-input: #262626;
-  --color-ring: #D946EF;
+  --color-ring: #FF69B4;
 
   --radius-lg: 0.5rem;
   --radius-md: 0.375rem;
@@ -51,15 +51,15 @@
 }
 
 .glow-spark {
-  box-shadow: 0 0 30px rgba(217, 70, 239, 0.15), 0 0 60px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.15), 0 0 60px rgba(0, 191, 255, 0.1);
 }
 
 .glow-spark-lg {
-  box-shadow: 0 0 60px rgba(217, 70, 239, 0.2), 0 0 100px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 60px rgba(255, 105, 180, 0.2), 0 0 100px rgba(0, 191, 255, 0.15);
 }
 
 .text-glow {
-  text-shadow: 0 0 15px rgba(217, 70, 239, 0.4);
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
 }
 
 .glass {
@@ -67,7 +67,7 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-br from-[#D946EF] via-[#8B5CF6] to-[#3B82F6];
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-[#FF69B4] via-[#FFFFFF] to-[#00BFFF];
 }
 
 .section-padding {

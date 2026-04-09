@@ -8,7 +8,7 @@ const projects = [
     title: "Elite Roofing US",
     description: "A high-converting landing page for a premium roofing contractor in Texas. Increased leads by 140% in 3 months.",
     image: "https://images.unsplash.com/photo-1631675591470-92284499522b?q=80&w=2070&auto=format&fit=crop",
-    testimonial: "Spark Now transformed our business. We went from 2 leads a week to 5 a day.",
+    testimonial: "Agent Spark transformed our business. We went from 2 leads a week to 5 a day.",
     client: "John D., Owner",
   },
   {
