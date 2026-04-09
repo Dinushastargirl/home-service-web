@@ -24,32 +24,32 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md py-4 border-b border-white/10" : "bg-transparent py-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-background/40 backdrop-blur-xl py-4 border-b border-white/[0.05]" : "bg-transparent py-8"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-            <Zap className="text-background w-6 h-6 fill-current" />
+        <a href="/" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 bg-primary rounded flex items-center justify-center group-hover:rotate-6 transition-transform duration-500">
+            <Zap className="text-background w-5 h-5 fill-current" />
           </div>
-          <span className="text-2xl font-display font-black tracking-tighter uppercase italic">
+          <span className="text-xl font-display font-bold tracking-tight uppercase">
             Lume<span className="text-primary">Agency</span>
           </span>
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+              className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-primary transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <Button className="bg-primary text-background hover:bg-primary/90 font-bold uppercase tracking-widest rounded-full px-6">
+          <Button className="bg-white text-black hover:bg-primary hover:text-black font-bold uppercase tracking-[0.15em] text-[10px] rounded-full px-6 h-10 transition-all duration-500">
             Get Started
           </Button>
         </div>

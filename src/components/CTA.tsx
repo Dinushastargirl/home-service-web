@@ -5,69 +5,39 @@ import { ArrowRight, Zap } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       <div className="container mx-auto">
-        <div className="relative rounded-[3rem] bg-primary p-12 md:p-24 overflow-hidden text-center">
-          {/* Background Elements */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black via-transparent to-transparent" />
-          </div>
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-20 -right-20 w-80 h-80 border-[20px] border-black/5 rounded-full" 
-          />
-          
-          <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative rounded-lg bg-primary p-12 md:p-24 overflow-hidden text-center">
+          <div className="relative z-10 max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-20 h-20 bg-background rounded-3xl flex items-center justify-center mx-auto mb-10 shadow-2xl rotate-12"
+              className="w-12 h-12 bg-background rounded flex items-center justify-center mx-auto mb-10 shadow-xl rotate-6"
             >
-              <Zap className="text-primary w-10 h-10 fill-current" />
+              <Zap className="text-primary w-6 h-6 fill-current" />
             </motion.div>
             
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-7xl font-display font-black uppercase italic leading-[0.9] tracking-tighter text-background mb-8"
+              className="text-4xl md:text-7xl font-display font-medium uppercase tracking-tight text-background mb-10 leading-[1.1]"
             >
-              Ready to Turn Your Website Into a <span className="underline decoration-black decoration-8 underline-offset-8">Sales Machine?</span>
+              Ready to Turn Your Website Into a <span className="italic">Sales Machine?</span>
             </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-xl md:text-2xl text-background/80 font-bold mb-12 max-w-2xl mx-auto"
-            >
-              Don't let another day go by with a website that doesn't perform. Let's build something that actually grows your business.
-            </motion.p>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex justify-center"
             >
-              <Button size="lg" className="bg-background text-primary hover:bg-neutral-900 font-black uppercase tracking-widest h-20 px-12 rounded-full text-xl group shadow-2xl">
+              <Button size="lg" className="bg-background text-primary hover:bg-neutral-900 font-bold uppercase tracking-[0.2em] h-16 px-12 rounded-full text-[10px] group shadow-2xl transition-all duration-500">
                 Get My Free Audit
-                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-12 text-background/60 text-sm font-bold uppercase tracking-[0.2em]"
-            >
-              Limited availability for Q2 2024
             </motion.div>
           </div>
         </div>

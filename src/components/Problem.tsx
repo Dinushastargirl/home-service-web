@@ -22,14 +22,14 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section id="services" className="section-padding bg-[#050505] relative overflow-hidden">
+    <section id="services" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-4xl mx-auto text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-primary font-bold uppercase tracking-[0.3em] mb-4"
+            className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6"
           >
             The Hard Truth
           </motion.div>
@@ -38,45 +38,42 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-display font-black uppercase italic leading-tight mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium uppercase tracking-tight leading-[1.1] mb-10"
           >
-            Is Your Website <span className="text-primary">Killing</span> Your Business?
+            Is Your Website <span className="text-primary italic">Killing</span> Your Business?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-muted-foreground leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            Most small business websites are built to look "nice," but they fail at their primary job: <span className="text-foreground font-bold underline decoration-primary underline-offset-4">making you money.</span>
+            Most websites are built to look "nice," but they fail at their primary job: <span className="text-foreground font-bold">making you money.</span>
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-12">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.3 }}
-              className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:glow-yellow"
+              transition={{ delay: index * 0.1 }}
+              className="group"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                <problem.icon className="text-primary w-8 h-8" />
+              <div className="w-12 h-12 rounded bg-white/[0.03] border border-white/[0.05] flex items-center justify-center mb-8 group-hover:border-primary/30 transition-colors duration-500">
+                <problem.icon className="text-primary w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{problem.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-bold uppercase tracking-tight mb-4">{problem.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {problem.description}
               </p>
             </motion.div>
           ))}
         </div>
       </div>
-      
-      {/* Decorative vertical line */}
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent -z-10" />
     </section>
   );
 }

@@ -37,14 +37,14 @@ export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section id="process" className="section-padding bg-[#050505] relative overflow-hidden">
+    <section id="process" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-primary font-bold uppercase tracking-[0.3em] mb-4"
+            className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6"
           >
             Our Blueprint
           </motion.div>
@@ -53,66 +53,62 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-display font-black uppercase italic leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium uppercase tracking-tight leading-[1.1]"
           >
-            How We Build Your <span className="text-primary">Success</span>
+            How We Build Your <span className="text-primary italic">Success</span>
           </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start max-w-6xl mx-auto">
           {/* Step List */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-6 lg:pb-0 gap-2 no-scrollbar">
             {steps.map((step, index) => (
               <button
                 key={step.id}
                 onClick={() => setActiveStep(index)}
-                className={`w-full text-left p-6 rounded-2xl border transition-all duration-500 flex items-center gap-6 group ${
+                className={`flex-shrink-0 lg:w-full text-left p-4 lg:p-6 rounded-lg transition-all duration-500 flex items-center gap-4 lg:gap-6 group cursor-pointer ${
                   activeStep === index 
-                    ? "bg-primary text-background border-primary glow-yellow" 
-                    : "bg-white/5 border-white/10 hover:border-white/20"
+                    ? "bg-white/[0.03] border border-white/[0.1] glow-yellow" 
+                    : "bg-transparent border border-transparent hover:bg-white/[0.01]"
                 }`}
               >
-                <span className={`text-2xl font-black italic ${activeStep === index ? "text-background" : "text-primary"}`}>
+                <span className={`text-base lg:text-lg font-bold italic ${activeStep === index ? "text-primary" : "text-foreground/20"}`}>
                   {step.id}
                 </span>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold uppercase tracking-tight">{step.title}</h3>
+                  <h3 className={`text-[10px] lg:text-sm font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap ${activeStep === index ? "text-foreground" : "text-foreground/40"}`}>
+                    {step.title}
+                  </h3>
                 </div>
-                <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${activeStep === index ? "translate-x-0" : "-translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`} />
               </button>
             ))}
           </div>
 
           {/* Step Content */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 min-h-[400px] flex flex-col justify-center relative overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="glass rounded-lg p-8 md:p-16 min-h-[400px] lg:min-h-[450px] flex flex-col justify-center relative overflow-hidden"
               >
-                {/* Background Icon */}
-                <div className="absolute -bottom-10 -right-10 opacity-5">
-                  {React.createElement(steps[activeStep].icon, { size: 300 })}
-                </div>
-
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-8">
-                    {React.createElement(steps[activeStep].icon, { className: "text-primary w-8 h-8" })}
+                  <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center mb-10">
+                    {React.createElement(steps[activeStep].icon, { className: "text-primary w-5 h-5" })}
                   </div>
-                  <h3 className="text-3xl md:text-5xl font-black uppercase italic mb-6 tracking-tighter">
+                  <h3 className="text-3xl md:text-5xl font-medium uppercase tracking-tight mb-8">
                     {steps[activeStep].title}
                   </h3>
-                  <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-xl">
                     {steps[activeStep].description}
                   </p>
                   
-                  <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="flex flex-wrap gap-3">
                     {steps[activeStep].details.map((detail, i) => (
-                      <div key={i} className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-bold uppercase tracking-widest text-center">
+                      <div key={i} className="px-4 py-2 rounded bg-white/[0.03] border border-white/[0.05] text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/60">
                         {detail}
                       </div>
                     ))}

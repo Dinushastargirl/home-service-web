@@ -29,40 +29,29 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="work" className="section-padding relative overflow-hidden">
+    <section id="work" className="section-padding relative overflow-hidden bg-[#050505]">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-primary font-bold uppercase tracking-[0.3em] mb-4"
-            >
-              Our Work
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-display font-black uppercase italic leading-tight"
-            >
-              Proven Results for <br /> <span className="text-primary">Real</span> Businesses
-            </motion.h2>
-          </div>
+        <div className="max-w-4xl mx-auto text-center mb-24">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6"
           >
-            <Button variant="outline" className="border-white/10 hover:bg-white/5 font-bold uppercase tracking-widest px-8 rounded-full h-14">
-              View All Projects
-            </Button>
+            Our Work
           </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium uppercase tracking-tight leading-[1.1]"
+          >
+            Proven Results for <br /> <span className="text-primary italic">Real</span> Businesses
+          </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -72,30 +61,31 @@ export default function Portfolio() {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 mb-6">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-white/[0.05] mb-8">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="p-6 glass rounded-2xl border-white/5 mb-6">
-                    <Quote className="text-primary w-6 h-6 mb-4 opacity-50" />
-                    <p className="text-sm italic leading-relaxed mb-4">"{project.testimonial}"</p>
-                    <div className="text-xs font-black uppercase tracking-widest text-primary">— {project.client}</div>
-                  </div>
-                  <Button className="w-full bg-white text-black hover:bg-primary hover:text-black font-black uppercase tracking-widest rounded-xl h-14">
+                <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                  <Button className="w-full bg-white text-black hover:bg-primary hover:text-black font-bold uppercase tracking-widest rounded h-12 text-[10px]">
                     Visit Website
-                    <ExternalLink className="ml-2 w-4 h-4" />
+                    <ExternalLink className="ml-2 w-3 h-3" />
                   </Button>
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold uppercase tracking-tight mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{project.description}</p>
+              <div className="px-2">
+                <h3 className="text-lg font-bold uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-6 line-clamp-2">{project.description}</p>
+                
+                <div className="pt-6 border-t border-white/[0.05]">
+                   <p className="text-[11px] italic text-foreground/40 leading-relaxed">"{project.testimonial}"</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
