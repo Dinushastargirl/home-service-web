@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Zap, Mail, Phone, MapPin, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -7,16 +8,16 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-16 mb-24">
           <div className="md:col-span-6">
-            <a href="/" className="flex items-center gap-3 mb-8 group">
+            <Link to="/" className="flex items-center gap-3 mb-8 group">
               <div className="w-8 h-8 bg-primary rounded flex items-center justify-center group-hover:rotate-6 transition-transform duration-500">
                 <Zap className="text-background w-5 h-5 fill-current" />
               </div>
               <span className="text-xl font-display font-bold tracking-tight uppercase">
                 Agent<span className="text-primary">Spark</span>
               </span>
-            </a>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-10">
-              Engineering high-performance digital experiences for small business owners across the United States.
+              Engineering high-performance digital experiences for small business owners globally.
             </p>
             <div className="flex gap-4">
               {[Instagram, Twitter, Linkedin].map((Icon, i) => (
@@ -31,11 +32,18 @@ export default function Footer() {
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-8">Navigation</h4>
               <ul className="space-y-4">
-                {["Services", "Process", "Work", "About"].map((item) => (
-                  <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-muted-foreground hover:text-white transition-colors font-bold uppercase tracking-[0.2em] text-[10px]">
-                      {item}
-                    </a>
+                {[
+                  { name: "Services", href: "/services" },
+                  { name: "Pricing", href: "/pricing" },
+                  { name: "Work", href: "/work" },
+                  { name: "Blog", href: "/blog" },
+                  { name: "FAQ", href: "/faq" },
+                  { name: "Contact", href: "/contact" },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.href} className="text-muted-foreground hover:text-white transition-colors font-bold uppercase tracking-[0.2em] text-[10px]">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -44,8 +52,8 @@ export default function Footer() {
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-8">Contact</h4>
               <div className="space-y-4">
-                <a href="mailto:hello@agentspark.com" className="block text-sm font-bold hover:text-primary transition-colors">hello@agentspark.com</a>
-                <a href="tel:+15550000000" className="block text-sm font-bold hover:text-primary transition-colors">+1 (555) 000-0000</a>
+                <a href="mailto:info.agentspark@gmail.com" className="block text-sm font-bold hover:text-primary transition-colors">info.agentspark@gmail.com</a>
+                <a href="tel:+94783733819" className="block text-sm font-bold hover:text-primary transition-colors">+94 783733819</a>
               </div>
             </div>
           </div>

@@ -1,69 +1,116 @@
-import { motion } from "motion/react";
-import { Star, Quote } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "John Miller",
-    role: "Owner, Miller Plumbing",
-    content: "I was skeptical at first, but after the new site launched, my phone started ringing twice as much. The 'Click-to-Call' feature is a game changer for my business.",
-    rating: 5
-  },
-  {
     name: "Sarah Jenkins",
-    role: "Manager, Sparkle Cleaners",
-    content: "The booking form integration saved us hours of manual work every week. Our customers love how easy it is to schedule a cleaning now.",
-    rating: 5
+    role: "CEO, TechFlow Solutions",
+    content: "Agent Spark didn't just build us a website; they built a revenue engine. Our conversion rate jumped by 150% in the first month alone.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop",
   },
   {
-    name: "Mike Thompson",
-    role: "Elite Electricians",
-    content: "Professional, fast, and knows exactly what a local business needs. My site looks better than all my competitors and ranks higher on Google too.",
-    rating: 5
-  }
+    name: "David Chen",
+    role: "Founder, Artisan Coffee Co.",
+    content: "The attention to detail and the 'gold' standard of service is real. They captured our brand essence perfectly and made it shine online.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    name: "Elena Rodriguez",
+    role: "Marketing Director, Luxe Estates",
+    content: "Working with Agent Spark was a game-changer. Their process is seamless, and the results speak for themselves. Truly world-class.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+  },
 ];
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   return (
-    <section className="section-padding bg-secondary/30">
+    <section id="testimonials" className="section-padding bg-[#050505] relative overflow-hidden">
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10" />
+      
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-4">Testimonials</h2>
-          <h3 className="text-4xl md:text-5xl mb-6">What our <span className="text-gradient">clients say</span></h3>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6"
+          >
+            Client Success
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-display font-medium uppercase tracking-tight leading-[1.1]"
+          >
+            What Our <span className="text-primary italic">Partners</span> Say
+          </motion.h2>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass p-8 rounded-2xl relative"
-            >
-              <Quote className="absolute top-6 right-8 w-12 h-12 text-primary/10" />
-              
-              <div className="flex gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                ))}
-              </div>
-              
-              <p className="text-lg italic text-muted-foreground mb-8 leading-relaxed">
-                "{testimonial.content}"
-              </p>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">
-                  {testimonial.name.charAt(0)}
+
+        <div className="max-w-5xl mx-auto relative">
+          <div className="relative glass rounded-3xl p-8 md:p-20 overflow-hidden">
+            <Quote className="absolute top-10 right-10 text-primary/10 w-32 h-32 -z-10" />
+            
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col md:flex-row items-center gap-12"
+              >
+                <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-primary/20 shrink-0 glow-spark">
+                  <img
+                    src={testimonials[currentIndex].image}
+                    alt={testimonials[currentIndex].name}
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-                <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider">{testimonial.role}</div>
+                
+                <div className="flex-1 text-center md:text-left">
+                  <div className="flex justify-center md:justify-start gap-1 mb-6">
+                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-8 italic">
+                    "{testimonials[currentIndex].content}"
+                  </p>
+                  <div>
+                    <h4 className="text-lg font-bold uppercase tracking-tight">{testimonials[currentIndex].name}</h4>
+                    <p className="text-primary text-sm font-medium">{testimonials[currentIndex].role}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex justify-center md:justify-end gap-4 mt-12 md:mt-0">
+              <button
+                onClick={prev}
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={next}
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

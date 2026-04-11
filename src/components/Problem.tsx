@@ -22,7 +22,7 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section id="services" className="section-padding bg-background relative overflow-hidden">
+    <section id="problem" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center mb-24">
           <motion.div

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
@@ -34,10 +35,12 @@ export default function CTA() {
               transition={{ delay: 0.2 }}
               className="flex justify-center"
             >
-              <Button size="lg" className="bg-background text-primary hover:bg-neutral-900 font-bold uppercase tracking-[0.2em] h-16 px-12 rounded-full text-[10px] group shadow-2xl transition-all duration-500">
-                Get My Free Audit
-                <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" className="bg-background text-primary hover:bg-neutral-900 font-bold uppercase tracking-[0.2em] h-16 px-12 rounded-full text-[10px] group shadow-2xl transition-all duration-500">
+                  Get My Free Audit
+                  <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +18,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
-    { name: "Work", href: "#work" },
-    { name: "About", href: "#about" },
+    { name: "Services", href: "/services" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Work", href: "/work" },
+    { name: "Blog", href: "/blog" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -29,29 +33,33 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 bg-primary rounded flex items-center justify-center group-hover:rotate-6 transition-transform duration-500">
             <Zap className="text-background w-5 h-5 fill-current" />
           </div>
           <span className="text-xl font-display font-bold tracking-tight uppercase">
             Agent<span className="text-primary">Spark</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
-              className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-primary transition-colors"
+              to={link.href}
+              className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                location.pathname === link.href ? "text-primary" : "text-foreground/60 hover:text-primary"
+              }`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <Button className="bg-white text-black hover:bg-primary hover:text-black font-bold uppercase tracking-[0.15em] text-[10px] rounded-full px-6 h-10 transition-all duration-500">
-            Get Started
-          </Button>
+          <Link to="/contact">
+            <Button className="bg-white text-black hover:bg-primary hover:text-black font-bold uppercase tracking-[0.15em] text-[10px] rounded-full px-6 h-10 transition-all duration-500">
+              Get Started
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -73,18 +81,22 @@ export default function Navbar() {
             className="absolute top-full left-0 right-0 bg-background border-b border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-xl font-bold uppercase tracking-widest"
+                to={link.href}
+                className={`text-xl font-bold uppercase tracking-widest ${
+                  location.pathname === link.href ? "text-primary" : "text-foreground"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <Button className="bg-primary text-background font-bold uppercase tracking-widest w-full py-6 text-lg">
-              Get Started
-            </Button>
+            <Link to="/contact" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="bg-primary text-background font-bold uppercase tracking-widest w-full py-6 text-lg">
+                Get Started
+              </Button>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

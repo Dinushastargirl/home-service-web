@@ -1,64 +1,90 @@
+import React from "react";
 import { motion } from "motion/react";
-import { Layout, Zap, RefreshCcw, Settings } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Globe, Layout, Zap, Shield, BarChart, Smartphone } from "lucide-react";
 
 const services = [
   {
-    icon: <Layout className="w-8 h-8 text-primary" />,
-    title: "Custom Web Design",
-    description: "Built from scratch to match your brand and optimized for the home service industry. No generic templates."
+    icon: Globe,
+    title: "Web Development",
+    description: "Custom-built, high-performance websites using the latest technologies for maximum speed and security.",
   },
   {
-    icon: <Zap className="w-8 h-8 text-primary" />,
-    title: "Lead-Gen Landing Pages",
-    description: "High-converting pages designed for specific ad campaigns (Google Ads/FB) to maximize your ROI."
+    icon: Layout,
+    title: "UI/UX Design",
+    description: "Human-centered design that focuses on conversion and provides a seamless experience for your users.",
   },
   {
-    icon: <RefreshCcw className="w-8 h-8 text-primary" />,
-    title: "Website Redesign",
-    description: "Transform your outdated site into a modern, mobile-friendly sales machine that actually brings in calls."
+    icon: Smartphone,
+    title: "Mobile Optimization",
+    description: "We ensure your website looks and functions perfectly on every device, from smartphones to desktops.",
   },
   {
-    icon: <Settings className="w-8 h-8 text-primary" />,
-    title: "Monthly Maintenance",
-    description: "Peace of mind with regular updates, security monitoring, and performance optimization for your site."
-  }
+    icon: Zap,
+    title: "Performance",
+    description: "Lightning-fast load times that keep your users engaged and improve your search engine rankings.",
+  },
+  {
+    icon: BarChart,
+    title: "SEO Strategy",
+    description: "Data-driven SEO strategies that put your business in front of the right audience at the right time.",
+  },
+  {
+    icon: Shield,
+    title: "Security",
+    description: "Robust security measures to protect your data and your customers' information from digital threats.",
+  },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-4">Our Services</h2>
-          <h3 className="text-4xl md:text-5xl mb-6">Everything you need to <span className="text-gradient">win more jobs</span></h3>
-          <p className="text-lg text-muted-foreground">
-            I specialize in the technical and design aspects of your online presence so you can focus on your trade.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6"
+          >
+            Our Expertise
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-display font-medium uppercase tracking-tight leading-[1.1] mb-8"
+          >
+            Digital Solutions for <span className="text-primary italic">Modern</span> Brands
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-muted-foreground"
+          >
+            We don't just build websites; we build growth engines that drive your business forward.
+          </motion.p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-primary/30 transition-all duration-500 group"
             >
-              <Card className="h-full bg-secondary/20 border-white/5 hover:border-primary/50 transition-all duration-300 group">
-                <CardHeader>
-                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <service.icon className="text-primary w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-tight mb-4">{service.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>
